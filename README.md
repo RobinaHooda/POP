@@ -12,5 +12,5 @@ Aby uruchomić program, należy wykonać poniższe komendy:
 python -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
-python genetic_algorithm.py
+python main.py
 ```
