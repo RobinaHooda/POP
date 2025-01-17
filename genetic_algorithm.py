@@ -1,5 +1,5 @@
 import numpy as np
-import test_functions
+
 
 a = 1e-10
 random_seed = 1234
@@ -16,26 +16,6 @@ def fitness_function(test_function, x):  # for minimization
 
 def evaluate_population(population, test_function):
     return np.array([fitness_function(test_function, ind) for ind in population])
-
-
-def choose_midpoint(population, evaluation, method):
-    midpoint = None
-    if len(population) > 0:
-        if method == "mean":
-            return np.mean(population, axis=0)
-        elif method == "median":
-            midpoint = np.median(population, axis=0)
-        elif method == "weighted_mean":
-            midpoint = np.average(population, axis=0, weights=evaluation)
-        elif method == "weighted_geometric_mean":
-            pass    # do djupy jest ta srednia bo ani wagi nie moga byc ujemne a potem jak juz sie to obejdzie to sa ujemne wartosci w punktach i znowu nie mozna wziac pierwiastkas
-        elif method == "trimmed_mean" and len(population) > 3:
-            sorted_population = np.sort(population, axis=0)
-            limit = int(0.25 * len(population))  # classic trimmed mean doesn't include 25% of the lowest and highest outliers
-            midpoint = np.mean(sorted_population[limit:-limit], axis=0)
-        elif method == "huber_estimator":
-            pass    # lowkey idk
-    return midpoint
 
 
 def onepoint_crossover(population, crossover_rate):
@@ -86,14 +66,14 @@ def proportional_selection(population, evaluation):
 
 
 def genetic_algorithm(
-    midpoint_method, test_function, population_lower_limit, population_upper_limit,
+    choose_midpoint, test_function, population_lower_limit, population_upper_limit,
     dimensions=2, population_size=100, crossover_rate=0.7, mutation_rate=0.01,
     variance=0.04, epsilon=1e-10, max_generations=10000
 ):
     population = generate_population(population_size, dimensions, population_lower_limit, population_upper_limit)
     generation = 0
     evaluation = evaluate_population(population, test_function)
-    midpoint = choose_midpoint(population, evaluation, midpoint_method)
+    midpoint = choose_midpoint(population, evaluation)
     old_midpoint_evaluation = 1000
     if len(midpoint) > 0:
         new_midpoint_evaluation = fitness_function(test_function, midpoint)
@@ -103,21 +83,10 @@ def genetic_algorithm(
             population = gaussian_mutation(np.array(new_new_population), mutation_rate, variance)  # mutation and generational succession - old population after reproduction and mutation becomes new population
 
             evaluation = evaluate_population(population, test_function)  # evaluation
-            midpoint = choose_midpoint(population, evaluation, midpoint_method)
+            midpoint = choose_midpoint(population, evaluation)
             old_midpoint_evaluation = new_midpoint_evaluation
             new_midpoint_evaluation = fitness_function(test_function, midpoint)
 
             generation += 1
 
     return population, midpoint, generation
-
-
-population, midpoint, generation = genetic_algorithm("mean", test_functions.sphere_function, -5.12, 5.12)
-evaluation = evaluate_population(population, test_functions.sphere_function)
-best_individual = population[np.argmax(evaluation)]
-midpoint_fitness = fitness_function(test_functions.sphere_function, midpoint)
-print(generation)
-print("Best individual:", best_individual)
-print("Best fitness:", np.max(evaluation))
-print("Midpoint:", midpoint)
-print("Midpoint fitness:", midpoint_fitness)
