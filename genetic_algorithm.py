@@ -1,7 +1,7 @@
 import numpy as np
 
 
-a = 1e-6
+a = 1e-12
 random_seed = 1234
 np.random.seed(random_seed)
 
@@ -75,14 +75,15 @@ def gaussian_mutation(population, mutation_rate, variance):
     return np.array(mutated_population)
 
 
+def convert_scores_to_weights(scores):
+    adjustment = min(scores) + a
+    return 1 / (scores + adjustment)
+
+
 def proportional_selection(population, scores):
     new_population = []
-    adjustment = min(scores) + a
 
-    if not len(population):
-        return population
-
-    probabilities = 1 / (scores + adjustment)   # making probablities non-negative
+    probabilities = convert_scores_to_weights(scores)
     probabilities /= probabilities.sum()        # normalization
     indices = np.random.choice(len(population), size=len(population), p=probabilities)
 
@@ -111,7 +112,7 @@ def genetic_algorithm(
     while (
         abs(old_midpoint_evaluation - new_midpoint_evaluation) > epsilon and
         (generation <= max_generations)
-    ):  # i had done something wrong or it doesnt work
+    ):
         population = proportional_selection(population, scores)                         # selection
         population = onepoint_crossover(population, crossover_rate)                     # crossover
         population = gaussian_mutation(np.array(population), mutation_rate, variance)   # mutation
