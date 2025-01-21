@@ -76,8 +76,8 @@ def gaussian_mutation(population, mutation_rate, variance):
 
 
 def convert_scores_to_weights(scores):
-    adjustment = min(scores) + a
-    return 1 / (scores + adjustment)
+    adjustment = min(scores)
+    return 1 / (scores - adjustment + a)
 
 
 def proportional_selection(population, scores):
