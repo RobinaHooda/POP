@@ -13,9 +13,9 @@ from midpoint import (
 
 def main():
     test_functions_list = [
-        ("EggHolder", test_functions.eggholder_function, [(-5.12, 5.12), (-5.12, 5.12)]),
+        ("EggHolder", test_functions.eggholder_function, [(-512, 512), (-512, 512)]),
         ("Sphere", test_functions.sphere_function, [(-5.12, 5.12), (-5.12, 5.12)]),
-        ("Rosenbrock", test_functions.rosenbrock_function, [(-5.12, 5.12), (-5.12, 5.12)]),
+        ("Rosenbrock", test_functions.rosenbrock_function, [(-5, 10), (-5, 10)]),
     ]
 
     midpoint_functions = [
@@ -27,7 +27,6 @@ def main():
     ]
 
     n = 30
-    
     results = []
 
     for test_name, function, domain in test_functions_list:
@@ -42,7 +41,7 @@ def main():
                     domain=domain
                 )
                 midpoint_fitness = fitness_individual(midpoint, function, domain)
-                
+
                 result = {
                     "function": test_name,
                     "midpoint_strategy": midpoint_name,
@@ -54,7 +53,7 @@ def main():
                     "midpoint_fitness_score": midpoint_fitness
                 }
                 results.append(result)
-                
+
     with open("genetic_algorithm_results.json", "w") as json_file:
         json.dump(results, json_file, indent=4)
 
