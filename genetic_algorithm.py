@@ -1,11 +1,6 @@
 import numpy as np
 
 
-a = 1e-12
-random_seed = 1234
-np.random.seed(random_seed)
-
-
 def generate_population(size, dimensions, domain):
     dimensions = len(domain)
     population = np.empty((size, dimensions))
@@ -77,6 +72,7 @@ def gaussian_mutation(population, mutation_rate, variance):
 
 def convert_scores_to_weights(scores):
     adjustment = min(scores)
+    a = 1e-12
     return 1 / (scores - adjustment + a)
 
 
