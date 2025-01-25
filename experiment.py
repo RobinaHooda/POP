@@ -13,17 +13,17 @@ from midpoint import (
 
 def main():
     test_functions_list = [
-    #    ("Sphere", test_functions.sphere_function, [(-5.12, 5.12), (-5.12, 5.12)]),
-    #    ("Rosenbrock", test_functions.rosenbrock_function, [(-5, 10), (-5, 10)]),
+        ("Sphere", test_functions.sphere_function, [(-5.12, 5.12), (-5.12, 5.12)]),
+        ("Rosenbrock", test_functions.rosenbrock_function, [(-5, 10), (-5, 10)]),
         ("EggHolder", test_functions.eggholder_function, [(-512, 512), (-512, 512)]),
     ]
 
     midpoint_functions = [
         ("Mean", midpoint_mean),
-    #    ("Median", midpoint_median),
-    #    ("Trimmed Mean", midpoint_trimmed_mean),
-    #    ("Weighted Mean", midpoint_weighted_mean),
-    #    ("Weighted Geometric Mean", midpoint_weighted_geometric_mean),
+        ("Median", midpoint_median),
+        ("Trimmed Mean", midpoint_trimmed_mean),
+        ("Weighted Mean", midpoint_weighted_mean),
+        ("Weighted Geometric Mean", midpoint_weighted_geometric_mean),
     ]
 
     n = 30
