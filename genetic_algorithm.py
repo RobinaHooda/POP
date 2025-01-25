@@ -93,17 +93,17 @@ def genetic_algorithm(
     dimensions=2, population_size=100, crossover_rate=0.7, mutation_rate=0.1,
     variance=0.04, epsilon=1e-10, max_generations=10000
 ):
-    # mutation_rate was changed from 0.01 to 0.1
-    # mutation_variance was set to 0.04
     population = generate_population(population_size, dimensions, domain)
     generation = 0
 
     scores = fitness_function(population, test_function, domain)
     best, best_score = evaluate_population(population, scores)
+    best_individuals = [best]
 
     midpoint = choose_midpoint(population, scores)
-    old_midpoint_evaluation = 1000
+    midpoints = [midpoint]
 
+    old_midpoint_evaluation = 1000
     new_midpoint_evaluation = fitness_individual(midpoint, test_function, domain)
     while (
         abs(old_midpoint_evaluation - new_midpoint_evaluation) > epsilon and
@@ -115,14 +115,16 @@ def genetic_algorithm(
 
         scores = fitness_function(population, test_function, domain)
         new_best, new_best_score = evaluate_population(population, scores)
+        best_individuals.append(new_best)
         if new_best_score < best_score:
             best = new_best
             best_score = new_best_score
 
         midpoint = choose_midpoint(population, scores)
+        midpoints.append(midpoint)
         old_midpoint_evaluation = new_midpoint_evaluation
         new_midpoint_evaluation = fitness_individual(midpoint, test_function, domain)
 
         generation += 1
 
-    return population, midpoint, generation-1, best, best_score
+    return midpoints, midpoint, new_midpoint_evaluation, generation-1, best_individuals, best, best_score
