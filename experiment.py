@@ -46,10 +46,10 @@ def main():
 					"midpoint_strategy": midpoint_name,
 					"seed": i + 1,
 					"generations": generation,
-                    "midpoints": [midpoint.tolist() for midpoint in midpoints],
+                    "midpoints": [mp.tolist() for mp in midpoints],
 					"midpoint": midpoint.tolist(),
 					"midpoint_fitness_score": midpoint_score,
-                    "best_individuals": [best.tolist() for best in best_individuals],
+                    "best_individuals": [b.tolist() for b in best_individuals],
 					"best_individual": best.tolist(),
 					"best_fitness_score": best_score,
 				}
