@@ -39,10 +39,11 @@ def plot_function(function, x_range, y_range, title, save=False, experiment_midp
             zs = function(bestpoints.T)
             ax.plot(xs, ys, zs, color='green')
 
-    #if best is not None:
-    #    x, y = best[0], best[1]
-    #    z = function(best)
-    #    ax.plot(x, y, z, marker='o', color='red')
+    if best is not None:
+        best = np.array(best)
+        xs, ys = best[:, 0], best[:, 1]
+        zs = function(best.T)
+        ax.plot(xs, ys, zs, color='red')
 
     ax.set_xlabel('x')
     ax.set_ylabel('y')
