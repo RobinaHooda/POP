@@ -1,7 +1,7 @@
 import numpy as np
 import json
-from genetic_algorithm import fitness_individual, genetic_algorithm
-import test_functions
+from genetic_algorithm import genetic_algorithm
+from test_functions import sphere_function, rosenbrock_function, eggholder_function
 from midpoint import (
     midpoint_mean,
     midpoint_median,
@@ -12,10 +12,10 @@ from midpoint import (
 
 
 def main():
-    test_functions_list = [
-        ("Sphere", test_functions.sphere_function, [(-5.12, 5.12), (-5.12, 5.12)]),
-        ("Rosenbrock", test_functions.rosenbrock_function, [(-5, 10), (-5, 10)]),
-        ("EggHolder", test_functions.eggholder_function, [(-512, 512), (-512, 512)]),
+    test_functions = [
+        ("Sphere", sphere_function, [(-5.12, 5.12), (-5.12, 5.12)]),
+        ("Rosenbrock", rosenbrock_function, [(-5, 10), (-5, 10)]),
+        ("EggHolder", eggholder_function, [(-512, 512), (-512, 512)]),
     ]
 
     midpoint_functions = [
@@ -29,7 +29,7 @@ def main():
     n = 30
     results = []
 
-    for test_name, function, domain in test_functions_list:
+    for test_name, function, domain in test_functions:
         print(f"\nRunning genetic algorithm for {test_name} function:\n")
         for midpoint_name, midpoint_fn in midpoint_functions:
             print(f"Using midpoint strategy: {midpoint_name}")

@@ -13,8 +13,7 @@ def rosenbrock_function(x):
 def eggholder_function(x):
     return -(x[1] + 47) * np.sin(np.sqrt(abs(x[1] + (x[0] / 2) + 47))) - x[0] * np.sin(np.sqrt(abs(x[0] - (x[1] + 47))))
 
-
-def plot_function(function, x_range, y_range, title, midpoints=None, bestpoints=None):
+def plot_function(function, x_range, y_range, title, save=False, experiment_midpoints=None, experiment_bestpoints=None, best=None):
     x = np.linspace(x_range[0], x_range[1], 500)
     y = np.linspace(y_range[0], y_range[1], 500)
     X, Y = np.meshgrid(x, y)
@@ -24,22 +23,35 @@ def plot_function(function, x_range, y_range, title, midpoints=None, bestpoints=
     fig = plt.figure()
     ax = fig.add_subplot(111, projection='3d')
     ax.plot_surface(X, Y, Z, alpha=0.25)
+    ax.view_init(90, -90)
 
-    if midpoints is not None:
-        midpoints = np.array(midpoints)
-        xs, ys = midpoints[:, 0], midpoints[:, 1]
-        zs = function(midpoints.T)
-        ax.plot(xs, ys, zs, color='blue')
+    if experiment_midpoints is not None:
+        for experiment_no in range(len(experiment_midpoints)):
+            midpoints = np.array(experiment_midpoints[experiment_no])
+            xs, ys = midpoints[:, 0], midpoints[:, 1]
+            zs = function(midpoints.T)
+            ax.plot(xs, ys, zs, color='blue')
 
-    if bestpoints is not None:
-        bestpoints = np.array(bestpoints)
-        xs, ys = bestpoints[:, 0], bestpoints[:, 1]
-        zs = function(bestpoints.T)
-        ax.scatter(xs, ys, zs, color='green')
+    if experiment_bestpoints is not None:
+        for experiment_no in range(len(experiment_bestpoints)):
+            bestpoints = np.array(experiment_bestpoints[experiment_no])
+            xs, ys = bestpoints[:, 0], bestpoints[:, 1]
+            zs = function(bestpoints.T)
+            ax.plot(xs, ys, zs, color='green')
+
+    #if best is not None:
+    #    x, y = best[0], best[1]
+    #    z = function(best)
+    #    ax.plot(x, y, z, marker='o', color='red')
 
     ax.set_xlabel('x')
     ax.set_ylabel('y')
     ax.set_zlabel('z')
     ax.set_title(title)
 
-    plt.show()
+    if save:
+        plt.tight_layout()
+        plt.savefig(f"results/{title}.png")
+        plt.close()
+    else:
+        plt.show()
