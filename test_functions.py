@@ -43,7 +43,7 @@ def plot_function(function, x_range, y_range, title, save=False, experiment_midp
         best = np.array(best)
         xs, ys = best[:, 0], best[:, 1]
         zs = function(best.T)
-        ax.plot(xs, ys, zs, color='red')
+        ax.plot(xs, ys, zs, marker='o', color='red')
 
     ax.set_xlabel('x')
     ax.set_ylabel('y')

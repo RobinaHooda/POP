@@ -21,8 +21,6 @@ test_functions = [
 ]
 midpoint_functions = ["Mean", "Median", "Trimmed Mean", "Weighted Mean", "Weighted Geometric Mean"]
 
-print(len(midpoints))
-
 for test_function_no, test_function in enumerate(test_functions):
     for midpoint_function_no, midpoint_function in enumerate(midpoint_functions):
         range_start = (test_function_no * len(midpoint_functions) + midpoint_function_no) * 30
