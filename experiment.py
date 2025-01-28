@@ -44,6 +44,7 @@ def main():
                 result = {
 					"function": test_name,
 					"midpoint_strategy": midpoint_name,
+                    "domain": domain,
 					"seed": i + 1,
 					"generations": generation,
                     "midpoints": [mp.tolist() for mp in midpoints],

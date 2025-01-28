@@ -34,13 +34,14 @@ for test_function_no, test_function in enumerate(test_functions):
         result_entry = {
             "function": test_function[0],
             "midpoint_function": midpoint_function,
+            "domain": [test_function[2], test_function[3]],
             "real_result": test_function[4][0],
             "mean_distance": mean_distance,
             "mean_generations": mean_generations
         }
         results.append(result_entry)
 
-        print(f"Function: {test_function[0]}, midpoint: {midpoint_function}, real_result: {test_function[4][0]}")
+        print(f"Function: {test_function[0]}, midpoint: {midpoint_function}, domain: [{test_function[2]}, {test_function[3]}], real_result: {test_function[4][0]}")
         print(f"Mean distance of best individual from real result: {mean_distance}")
         print(f"Mean generations: {mean_generations}\n")
         plot_function(test_function[1], test_function[2], test_function[3], f"{test_function[0]} {midpoint_function}", True, midpoints[range_start:range_end], bestpoints[range_start:range_end], test_function[4])
