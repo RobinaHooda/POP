@@ -1,0 +1,152 @@
+[
+    {
+        "function": "Sphere Function",
+        "midpoint_function": "Mean",
+        "real_result": [
+            0,
+            0
+        ],
+        "mean_distance": 1.3246545249541168e-06,
+        "mean_generations": 8646.433333333332
+    },
+    {
+        "function": "Sphere Function",
+        "midpoint_function": "Median",
+        "real_result": [
+            0,
+            0
+        ],
+        "mean_distance": 0.002653719970419944,
+        "mean_generations": 12.3
+    },
+    {
+        "function": "Sphere Function",
+        "midpoint_function": "Trimmed Mean",
+        "real_result": [
+            0,
+            0
+        ],
+        "mean_distance": 0.002653719970419944,
+        "mean_generations": 12.3
+    },
+    {
+        "function": "Sphere Function",
+        "midpoint_function": "Weighted Mean",
+        "real_result": [
+            0,
+            0
+        ],
+        "mean_distance": 0.003199335408558261,
+        "mean_generations": 11.733333333333333
+    },
+    {
+        "function": "Sphere Function",
+        "midpoint_function": "Weighted Geometric Mean",
+        "real_result": [
+            0,
+            0
+        ],
+        "mean_distance": 1.3246545249541168e-06,
+        "mean_generations": 8646.433333333332
+    },
+    {
+        "function": "Rosenbrock Function",
+        "midpoint_function": "Mean",
+        "real_result": [
+            1,
+            1
+        ],
+        "mean_distance": 0.0028629382138466433,
+        "mean_generations": 10000.0
+    },
+    {
+        "function": "Rosenbrock Function",
+        "midpoint_function": "Median",
+        "real_result": [
+            1,
+            1
+        ],
+        "mean_distance": 2.4696411364406683,
+        "mean_generations": 8.466666666666667
+    },
+    {
+        "function": "Rosenbrock Function",
+        "midpoint_function": "Trimmed Mean",
+        "real_result": [
+            1,
+            1
+        ],
+        "mean_distance": 2.4696411364406683,
+        "mean_generations": 8.466666666666667
+    },
+    {
+        "function": "Rosenbrock Function",
+        "midpoint_function": "Weighted Mean",
+        "real_result": [
+            1,
+            1
+        ],
+        "mean_distance": 2.471485775759559,
+        "mean_generations": 7.966666666666667
+    },
+    {
+        "function": "Rosenbrock Function",
+        "midpoint_function": "Weighted Geometric Mean",
+        "real_result": [
+            1,
+            1
+        ],
+        "mean_distance": 0.0028629382138466433,
+        "mean_generations": 10000.0
+    },
+    {
+        "function": "EggHolder Function",
+        "midpoint_function": "Mean",
+        "real_result": [
+            512,
+            404.2319
+        ],
+        "mean_distance": 663.2073827872123,
+        "mean_generations": 5890.266666666666
+    },
+    {
+        "function": "EggHolder Function",
+        "midpoint_function": "Median",
+        "real_result": [
+            512,
+            404.2319
+        ],
+        "mean_distance": 663.3167286147919,
+        "mean_generations": 368.1666666666667
+    },
+    {
+        "function": "EggHolder Function",
+        "midpoint_function": "Trimmed Mean",
+        "real_result": [
+            512,
+            404.2319
+        ],
+        "mean_distance": 663.3167286147919,
+        "mean_generations": 368.1666666666667
+    },
+    {
+        "function": "EggHolder Function",
+        "midpoint_function": "Weighted Mean",
+        "real_result": [
+            512,
+            404.2319
+        ],
+        "mean_distance": 663.3217221978498,
+        "mean_generations": 367.6666666666667
+    },
+    {
+        "function": "EggHolder Function",
+        "midpoint_function": "Weighted Geometric Mean",
+        "real_result": [
+            512,
+            404.2319
+        ],
+        "mean_distance": 663.2073827872123,
+        "mean_generations": 5890.266666666666
+    }
+]
