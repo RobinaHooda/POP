@@ -2,6 +2,12 @@ import json
 import numpy as np
 from test_functions import sphere_function, rosenbrock_function, eggholder_function, plot_function
 
+def convert_to_3d(function, point):
+    x, y = point
+    point = np.array(point)
+    z = function(point.T)
+    return np.array([x, y, z])
+
 midpoints = []
 bestpoints = []
 generations = []
@@ -23,12 +29,13 @@ midpoint_functions = ["Mean", "Median", "Trimmed Mean", "Weighted Mean", "Weight
 
 results = []
 for test_function_no, test_function in enumerate(test_functions):
+    real_point_3d = convert_to_3d(test_function[1], test_function[4][0])
     for midpoint_function_no, midpoint_function in enumerate(midpoint_functions):
         range_start = (test_function_no * len(midpoint_functions) + midpoint_function_no) * 30
         range_end = (test_function_no * len(midpoint_functions) + midpoint_function_no + 1) * 30
         mean_generations = np.mean(generations[range_start:range_end])
-        real_point = np.array(test_function[4][0])
-        distances = np.linalg.norm(np.array(best_individuals[range_start:range_end]) - real_point, axis=1)
+        best_individuals_3d = np.array([convert_to_3d(test_function[1], point) for point in best_individuals[range_start:range_end]])
+        distances = np.linalg.norm(best_individuals_3d - real_point_3d, axis=1)
         mean_distance = np.mean(distances)
 
         result_entry = {
