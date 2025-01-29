@@ -1,5 +1,6 @@
 import numpy as np
 from genetic_algorithm import convert_scores_to_weights
+from scipy.optimize import minimize
 
 
 def midpoint_mean(population, _):
@@ -32,5 +33,15 @@ def midpoint_trimmed_mean(population, _):
     return np.mean(sorted_population[limit:-limit], axis=0)
 
 
-def midpoint_huber_estimator(population, scores):
-    pass
+def midpoint_huber_estimator(population, _):
+    def huber_loss(mu):
+        delta = 1.0
+        a = population - mu
+        return np.sum(np.where(
+            np.abs(a) <= delta,
+            0.5 * a**2,
+            delta * (np.abs(a) - 0.5 * delta)
+        ))
+
+    initial_guess = np.mean(population, axis=0)
+    return minimize(huber_loss, initial_guess).x
