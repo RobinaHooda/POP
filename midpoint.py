@@ -23,7 +23,7 @@ def midpoint_weighted_geometric_mean(population, scores):
     if np.sum(np.sign(population)) <= 0:
         geometric_mean = -geometric_mean
 
-    return midpoint_mean(population, scores)
+    return geometric_mean
 
 
 def midpoint_trimmed_mean(population, _):
