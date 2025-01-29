@@ -16,7 +16,8 @@
             0,
             0
         ],
-        "mean_distance": 1.324654524961614e-06,
+        "mean_distance": 1.3246545249541168e-06,
+        "mean_score_difference": 3.3882777062524487e-12,
         "mean_generations": 8646.433333333332
     },
     {
@@ -36,7 +37,8 @@
             0,
             0
         ],
-        "mean_distance": 0.002653747800838252,
+        "mean_distance": 0.002653719970419944,
+        "mean_score_difference": 1.0453211636647177e-05,
         "mean_generations": 12.3
     },
     {
@@ -56,7 +58,8 @@
             0,
             0
         ],
-        "mean_distance": 0.002653747800838252,
+        "mean_distance": 0.002653719970419944,
+        "mean_score_difference": 1.0453211636647177e-05,
         "mean_generations": 12.3
     },
     {
@@ -76,7 +79,8 @@
             0,
             0
         ],
-        "mean_distance": 0.0031994152866609464,
+        "mean_distance": 0.003199335408558261,
+        "mean_score_difference": 1.8225195102383616e-05,
         "mean_generations": 11.733333333333333
     },
     {
@@ -96,7 +100,8 @@
             0,
             0
         ],
-        "mean_distance": 0.0036719894760614278,
+        "mean_distance": 0.0036718961135173787,
+        "mean_score_difference": 2.1876605060188952e-05,
         "mean_generations": 11.3
     },
     {
@@ -116,7 +121,8 @@
             0,
             0
         ],
-        "mean_distance": 1.324654524961614e-06,
+        "mean_distance": 1.3246545249541168e-06,
+        "mean_score_difference": 3.3882777062524487e-12,
         "mean_generations": 8646.433333333332
     },
     {
@@ -136,7 +142,8 @@
             1,
             1
         ],
-        "mean_distance": 0.002862939963258651,
+        "mean_distance": 0.0028629382138466433,
+        "mean_score_difference": 2.7396601501603563e-06,
         "mean_generations": 10000.0
     },
     {
@@ -156,7 +163,8 @@
             1,
             1
         ],
-        "mean_distance": 3.490771843039987,
+        "mean_distance": 2.4696411364406683,
+        "mean_score_difference": 2.078163902924793,
         "mean_generations": 8.466666666666667
     },
     {
@@ -176,7 +184,8 @@
             1,
             1
         ],
-        "mean_distance": 3.490771843039987,
+        "mean_distance": 2.4696411364406683,
+        "mean_score_difference": 2.078163902924793,
         "mean_generations": 8.466666666666667
     },
     {
@@ -196,7 +205,8 @@
             1,
             1
         ],
-        "mean_distance": 3.492393622406976,
+        "mean_distance": 2.471485775759559,
+        "mean_score_difference": 2.0791442846261274,
         "mean_generations": 7.966666666666667
     },
     {
@@ -216,7 +226,8 @@
             1,
             1
         ],
-        "mean_distance": 3.373457420449426,
+        "mean_distance": 2.434262043445976,
+        "mean_score_difference": 1.9538388605557584,
         "mean_generations": 13.666666666666666
     },
     {
@@ -236,7 +247,8 @@
             1,
             1
         ],
-        "mean_distance": 0.002862939963258651,
+        "mean_distance": 0.0028629382138466433,
+        "mean_score_difference": 2.7396601501603563e-06,
         "mean_generations": 10000.0
     },
     {
@@ -256,7 +268,8 @@
             512,
             404.2319
         ],
-        "mean_distance": 674.7234947890531,
+        "mean_distance": 663.2073827872123,
+        "mean_score_difference": 107.42117233487484,
         "mean_generations": 5890.266666666666
     },
     {
@@ -276,7 +289,8 @@
             512,
             404.2319
         ],
-        "mean_distance": 675.0129378756046,
+        "mean_distance": 663.3167286147919,
+        "mean_score_difference": 108.1625208144125,
         "mean_generations": 368.1666666666667
     },
     {
@@ -296,7 +310,8 @@
             512,
             404.2319
         ],
-        "mean_distance": 675.0129378756046,
+        "mean_distance": 663.3167286147919,
+        "mean_score_difference": 108.1625208144125,
         "mean_generations": 368.1666666666667
     },
     {
@@ -316,7 +331,8 @@
             512,
             404.2319
         ],
-        "mean_distance": 675.0204260757333,
+        "mean_distance": 663.3217221978498,
+        "mean_score_difference": 108.1708065875833,
         "mean_generations": 367.6666666666667
     },
     {
@@ -336,7 +352,8 @@
             512,
             404.2319
         ],
-        "mean_distance": 674.8907364049979,
+        "mean_distance": 663.1966244805654,
+        "mean_score_difference": 108.13260220027398,
         "mean_generations": 374.46666666666664
     },
     {
@@ -356,7 +373,8 @@
             512,
             404.2319
         ],
-        "mean_distance": 674.7234947890531,
+        "mean_distance": 663.2073827872123,
+        "mean_score_difference": 107.42117233487484,
         "mean_generations": 5890.266666666666
     }
 ]
