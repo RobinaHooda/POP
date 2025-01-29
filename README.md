@@ -7,6 +7,8 @@
 Repozytorium zawiera projekt zaliczeniowy z przedmiotu **Przeszukiwanie i optymalizacja (POP)**. W folderze docs znajduje się dokumentacja wstępna.
 
 ## Instrukcja uruchomienia
+Wymaganie wstępne: `python` musi być zainstalowany.
+
 Aby uruchomić program, należy wykonać poniższe komendy:
 ```bash
 python -m venv .venv
