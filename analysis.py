@@ -2,9 +2,6 @@ import json
 import numpy as np
 from test_functions import sphere_function, rosenbrock_function, eggholder_function, plot_function
 
-def calculate_score(function, point):
-    return function(np.array(point).T)
-
 midpoints = []
 bestpoints = []
 generations = []
@@ -27,14 +24,14 @@ midpoint_functions = ["Mean", "Median", "Trimmed Mean", "Weighted Mean", "Weight
 results = []
 for test_function_no, test_function in enumerate(test_functions):
     real_point = np.array(test_function[4][0])
-    real_score = calculate_score(test_function[1], real_point)
+    real_score = test_function[1](real_point.T)
     for midpoint_function_no, midpoint_function in enumerate(midpoint_functions):
         range_start = (test_function_no * len(midpoint_functions) + midpoint_function_no) * 30
         range_end = (test_function_no * len(midpoint_functions) + midpoint_function_no + 1) * 30
         mean_generations = np.mean(generations[range_start:range_end])
         distances = np.linalg.norm(np.array(best_individuals[range_start:range_end]) - real_point, axis=1)
         mean_distance = np.mean(distances)
-        best_scores = [calculate_score(test_function[1], individual) for individual in best_individuals[range_start:range_end]]
+        best_scores = [test_function[1](np.array(individual).T) for individual in best_individuals[range_start:range_end]]
         mean_score_difference = np.mean(np.abs(np.array(best_scores) - real_score))
 
         result_entry = {
