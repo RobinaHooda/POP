@@ -25,7 +25,7 @@ test_functions = [
     ["Rosenbrock Function", rosenbrock_function, (-5, 10), (-5, 10), [[1, 1]]],
     ["EggHolder Function", eggholder_function, (-512, 512), (-512, 512), [[512, 404.2319]]],
 ]
-midpoint_functions = ["Mean", "Median", "Trimmed Mean", "Weighted Mean", "Weighted Geometric Mean"]
+midpoint_functions = ["Mean", "Median", "Trimmed Mean", "Weighted Mean", "Weighted Geometric Mean","Huber Estimator"]
 
 results = []
 for test_function_no, test_function in enumerate(test_functions):
